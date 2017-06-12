@@ -6,13 +6,13 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueResource from 'vue-resource'
-// import VueLog from 'vue-log'
+import jsQR from 'jsqr'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(VueResource)
-// Vue.use(VueLog)
+Vue.use(jsQR)
 
 /* eslint-disable no-new */
 new Vue({
