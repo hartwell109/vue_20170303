@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import UserList from '@/components/UserList'
 import Menu from '@/components/Menu'
 import QRcord from '@/components/QRcord'
+import ECharts from '@/components/ECharts'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/qrcord',
       name: 'QRcord',
       component: QRcord
+    },
+    {
+      path: '/echarts',
+      name: 'ECharts',
+      component: ECharts
     }
   ]
 })
