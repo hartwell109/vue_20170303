@@ -8,10 +8,9 @@
           <canvas id="canvas" style="width:640px; height:480px;"></canvas>
         </el-col>
         <el-col :span="10" :offset="1">
-
+          <canvas id="canvaQrcode"></canvas>
         </el-col>
       </el-row>
-
     </div>
   </div>
 </template>
@@ -34,7 +33,7 @@
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
       if (navigator.getUserMedia) {
         var successCallback = function (stream) {
-          if (window.webkitURL) {
+          if (window.URL) {
             video.src = window.webkitURL.createObjectURL(stream)
           } else if (video.mozSrcObject !== undefined) {
             video.mozSrcObject = stream
@@ -62,11 +61,18 @@
           }
         }
       }
+
+      var QRCode = require('qrcode')
+      var canvaQrcode = document.getElementById('canvQrcode')
+
+      QRCode.toCanvas(canvaQrcode, 'sample text', function (error) {
+        if (error) console.error(error)
+        console.log('success!')
+      })
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
