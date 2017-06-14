@@ -3,29 +3,27 @@
     <h2>{{msg}}</h2>
     <el-carousel :interval="4000" height="600px" arrow="always">
       <el-carousel-item v-for="item in sliderList" :key="item">
-        <img :src="item.url"></img>
+        <router-link :to="item.click">
+          <img :src="item.url"></img>
+        </router-link>
+        <h3 type="text">{{item.text}}</h3>
       </el-carousel-item>
     </el-carousel>
-    <router-link to="/login">
-      <el-button type="text">Next</el-button>
-    </router-link>
-
   </div>
 </template>
 
 <script>
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button'
   export default {
-    components: {ElButton},
     name: 'hello',
     data () {
       return {
-        msg: 'Welcome to Our First Vue.js App',
+        msg: '欢迎使用Vuejs及ElementUI组件',
         sliderList: [
-          {url: 'http://unsplash.it/800/600', click: '', text: ''},
-          {url: 'http://unsplash.it/800/601', click: '', text: ''},
-          {url: 'http://unsplash.it/800/604', click: '', text: ''},
-          {url: 'http://unsplash.it/800/608', click: '', text: ''}
+          {url: 'http://unsplash.it/800/600', click: '/login', text: 'login'},
+          {url: 'http://unsplash.it/800/601', click: '/menu', text: 'menu'},
+          {url: 'http://unsplash.it/800/604', click: '/userlist', text: 'userlist'},
+          {url: 'http://unsplash.it/800/608', click: '/echarts', text: 'echarts'},
+          {url: 'http://unsplash.it/800/608', click: '/qrcord', text: 'qrcord'}
         ]
       }
     }
