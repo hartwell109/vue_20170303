@@ -1,14 +1,11 @@
 <template>
   <div>
-    <h3>二维码</h3>
+    <h3>二维码扫描</h3>
     <div>
       <el-row border>
-        <el-col :span="10" :offset="1">
+        <el-col :span="10" :offset="7">
           <video id="video" autoplay="true" style="display:none;"></video>
           <canvas id="canvas" style="width:640px; height:480px;"></canvas>
-        </el-col>
-        <el-col :span="10" :offset="1">
-          <canvas id="canvaQrcode"></canvas>
         </el-col>
       </el-row>
     </div>
@@ -21,6 +18,9 @@
       return {}
     },
     mounted: function () {
+      /**
+       * jsqr
+       */
       var jsQR = require('jsqr')
       var video = document.getElementById('video')
       var canvas = document.getElementById('canvas')
@@ -34,7 +34,7 @@
       if (navigator.getUserMedia) {
         var successCallback = function (stream) {
           if (window.URL) {
-            video.src = window.webkitURL.createObjectURL(stream)
+            video.src = window.URL.createObjectURL(stream)
           } else if (video.mozSrcObject !== undefined) {
             video.mozSrcObject = stream
           } else {
@@ -61,14 +61,6 @@
           }
         }
       }
-
-      var QRCode = require('qrcode')
-      var canvaQrcode = document.getElementById('canvQrcode')
-
-      QRCode.toCanvas(canvaQrcode, 'sample text', function (error) {
-        if (error) console.error(error)
-        console.log('success!')
-      })
     }
   }
 </script>

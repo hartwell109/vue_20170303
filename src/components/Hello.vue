@@ -6,7 +6,7 @@
         <router-link :to="item.click">
           <img :src="item.url"></img>
         </router-link>
-        <h3 type="text">{{item.text}}</h3>
+        <h1 style="margin-top:-5%;border: medium;">{{item.text}}</h1>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -19,11 +19,12 @@
       return {
         msg: '欢迎使用Vuejs及ElementUI组件',
         sliderList: [
-          {url: 'http://unsplash.it/800/600', click: '/login', text: 'login'},
-          {url: 'http://unsplash.it/800/601', click: '/menu', text: 'menu'},
-          {url: 'http://unsplash.it/800/604', click: '/userlist', text: 'userlist'},
-          {url: 'http://unsplash.it/800/608', click: '/echarts', text: 'echarts'},
-          {url: 'http://unsplash.it/800/608', click: '/qrcord', text: 'qrcord'}
+          {url: 'http://unsplash.it/800/600', click: '/login', text: '登陆与权限'},
+          {url: 'http://unsplash.it/800/601', click: '/menu', text: '菜单格式'},
+          {url: 'http://unsplash.it/800/604', click: '/userlist', text: '用户列表'},
+          {url: 'http://unsplash.it/800/608', click: '/echarts', text: '统计图表'},
+          {url: 'http://unsplash.it/800/605', click: '/qrcode', text: '二维码生成'},
+          {url: 'http://unsplash.it/800/609', click: '/jsqr', text: '二维码扫描 '}
         ]
       }
     }
