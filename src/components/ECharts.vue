@@ -33,9 +33,6 @@
     mounted: function () {
       var echarts = require('echarts')
       this.chartColumn = echarts.init(document.getElementById('chartColumn'))
-      /**
-       * echarts.init(document.getElementById('chartColumn'))
-       */
       this.chartBar = echarts.init(document.getElementById('chartBar'))
       this.chartLine = echarts.init(document.getElementById('chartLine'))
       this.chartPie = echarts.init(document.getElementById('chartPie'))
