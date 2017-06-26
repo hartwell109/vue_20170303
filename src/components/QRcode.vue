@@ -9,7 +9,6 @@
         <el-input :value="message" @change="makeCanvas"></el-input>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
@@ -38,5 +37,4 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

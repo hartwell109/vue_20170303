@@ -24,7 +24,9 @@
           {url: 'http://unsplash.it/800/604', click: '/userlist', text: '用户列表'},
           {url: 'http://unsplash.it/800/608', click: '/echarts', text: '统计图表'},
           {url: 'http://unsplash.it/800/605', click: '/qrcode', text: '二维码生成'},
-          {url: 'http://unsplash.it/800/609', click: '/jsqr', text: '二维码扫描 '}
+          {url: 'http://unsplash.it/800/609', click: '/jsqr', text: '二维码扫描 '},
+          {url: 'http://unsplash.it/800/611', click: '/schedule', text: '任务调度 '},
+          {url: 'http://unsplash.it/800/612', click: '/zabbix', text: 'Zabbix '}
         ]
       }
     }

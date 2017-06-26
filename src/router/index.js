@@ -7,6 +7,8 @@ import Menu from '@/components/Menu'
 import QRcode from '@/components/QRcode'
 import JsQR from '@/components/JsQR'
 import ECharts from '@/components/ECharts'
+import Zabbix from '@/components/Zabbix'
+import Schedule from '@/components/Schedule'
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
       path: '/echarts',
       name: 'ECharts',
       component: ECharts
+    },
+    {
+      path: '/zabbix',
+      name: 'Zabbix',
+      component: Zabbix
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: Schedule
     }
   ]
 })
