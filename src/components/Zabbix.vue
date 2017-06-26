@@ -1,27 +1,28 @@
 <template>
-  <div class="Zabbix">
+  <div class="zabbix">
     <h3>Zabbix</h3>
-    <button type="primary" @click="change">Zabbix</button>
+    <button type="primary" @click="getData">Zabbix</button>
     <br/>
-    <div>Time:{{ mssg }}</div>
+    <div>Time:{{result}}</div>
     <br/>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Zabbix',
-    data: () => {
+    name: 'zabbix',
+    data: function () {
       return {
-        mssg: 'abc'
+        result: 'abc'
       }
     },
     methods: {
-      change: (event) => {
+      clickit: function (event) {
         console.log(new Date())
-        this.mssg = new Date()
+        this.result = new Date()
+//        this.$set(this.$data.mssg, 'mssg', new Date())
       },
-      getData: (event) => {
+      getData: function (event) {
         var axios = require('axios')
         axios({
           method: 'post',
@@ -30,9 +31,11 @@
           },
           url: 'http://118.144.88.17:33305/api_jsonrpc.php',
           data: '{"jsonrpc": "2.0","method":"hostgroup.get","params":{"output":["groupid","name"]},"auth":"3d9f8e4b950a235bd1b66cb8355839bb","id": 1}'
-        }).then(function (response) {
-          console.log(response.data.result)
-          this.msg = response.data.result.length
+        }).then((response) => {
+          this.$nextTick(function () {
+            this.result = response.data.result.length
+            console.log(response.data.result)
+          })
         }).catch(function (err) {
           console.log(err)
         })

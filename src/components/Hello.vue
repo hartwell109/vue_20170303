@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h2>{{msg}}</h2>
+    <h2>{{mssg}}</h2>
     <el-carousel :interval="4000" height="600px" arrow="always">
       <el-carousel-item v-for="item in sliderList" :key="item">
         <router-link :to="item.click">
@@ -17,7 +17,7 @@
     name: 'hello',
     data () {
       return {
-        msg: '欢迎使用Vuejs及ElementUI组件',
+        mssg: '欢迎使用Vuejs及ElementUI组件',
         sliderList: [
           {url: 'http://unsplash.it/800/600', click: '/login', text: '登陆与权限'},
           {url: 'http://unsplash.it/800/601', click: '/menu', text: '菜单格式'},
