@@ -6,5 +6,5 @@ exports.install = function (Vue, options) {
   var vueJsonp = function (url, params, callback) {
     jsonp(url, params, callback)
   }
-  Vue.prototype.jsonp = vueJsonp
+  Vue.prototype.$jsonp = vueJsonp
 }

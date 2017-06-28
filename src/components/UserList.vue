@@ -21,16 +21,13 @@
       }
     },
     created: function () {
-      this.$http
-        .jsonp('http://localhost:3000/dao/list?pageNum=0', {emulateJSON: true})
-        .then(
-          res => {
-            this.userlist = res.data
-          },
-          res => {
-            console.log(res.status)
-          }
-        )
+      this.$jsonp('http://localhost:3000/dao/list', {pageNum: 0}, (err, data) => {
+        if (err) {
+          console.log(err)
+        } else {
+          this.userlist = data
+        }
+      })
     },
     methods: {
       changePage: function (event) {

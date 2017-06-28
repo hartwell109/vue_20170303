@@ -14,7 +14,7 @@
       }
     },
     created: function () {
-      this.scheduleJob('*/5 * * * * *', () => {
+      this.$scheduleJob('*/5 * * * * *', () => {
         this.theTime = new Date()
         console.log(this)
       })
