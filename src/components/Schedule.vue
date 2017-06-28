@@ -10,15 +10,13 @@
     name: 'schedule',
     data: function () {
       return {
-        theTime: new Date()
+        theTime: ''
       }
     },
     created: function () {
-      var schedule = require('node-schedule')
-      schedule.scheduleJob('*/5 * * * * *', function () {
-        let t = new Date()
-        this.theTime = t
-        console.log(this.theTime)
+      this.scheduleJob('*/5 * * * * *', () => {
+        this.theTime = new Date()
+        console.log(this)
       })
     }
   }
