@@ -18,9 +18,8 @@
     },
     methods: {
       getData: function (event) {
-        var jsonp = require('jsonp')
         const params = {pageNum: 0}
-        jsonp('http://localhost:3000/dao/list', params, (err, data) => {
+        this.jsonp('http://localhost:3000/dao/list', params, (err, data) => {
           if (err) {
             console.log(err)
           } else {

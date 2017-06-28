@@ -7,15 +7,15 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueResource from 'vue-resource'
 
-import vueSchedule from './modules/VueShedule'
-// import vueAxios from './modules/VueAxios'
+import VueSchedule from './modules/VueShedule'
+import VueJsonp from './modules/VueJsonp'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(VueResource)
-Vue.use(vueSchedule)
-// Vue.use(vueAxios)
+Vue.use(VueSchedule)
+Vue.use(VueJsonp)
 
 /* eslint-disable no-new */
 new Vue({
