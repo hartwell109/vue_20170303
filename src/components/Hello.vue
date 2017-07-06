@@ -26,7 +26,8 @@
           {url: 'http://unsplash.it/800/605', click: '/qrcode', text: '二维码生成'},
           {url: 'http://unsplash.it/800/609', click: '/jsqr', text: '二维码扫描 '},
           {url: 'http://unsplash.it/800/611', click: '/schedule', text: '任务调度 '},
-          {url: 'http://unsplash.it/800/612', click: '/zabbix', text: 'Zabbix '}
+          {url: 'http://unsplash.it/800/612', click: '/zabbix', text: 'Zabbix '},
+          {url: 'http://unsplash.it/800/613', click: '/tree', text: '树形目录 '}
         ]
       }
     }

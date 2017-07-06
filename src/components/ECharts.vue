@@ -27,8 +27,17 @@
         chartColumn: null,
         chartBar: null,
         chartLine: null,
-        chartPie: null
+        chartPie: null,
+        lineData: [120, 132, 101, 134, 90, 230, 210]
       }
+    },
+    created: function () {
+      this.$scheduleJob('*/5 * * * * *', () => {
+        let v = parseInt(Math.random() * 1000)
+        console.log(v)
+        this.lineData.shift()
+        this.lineData.push(v)
+      })
     },
     mounted: function () {
       var echarts = require('echarts')
@@ -124,7 +133,7 @@
           name: '销售额',
           type: 'line',
           stack: '总量',
-          data: [120, 132, 101, 134, 90, 230, 210]
+          data: this.lineData
         }, {
           name: '毛利润',
           type: 'line',

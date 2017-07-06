@@ -9,6 +9,7 @@ import JsQR from '@/components/JsQR'
 import ECharts from '@/components/ECharts'
 import Zabbix from '@/components/Zabbix'
 import Schedule from '@/components/Schedule'
+import Tree from '@/components/Tree'
 
 Vue.use(Router)
 
@@ -58,6 +59,10 @@ export default new Router({
       path: '/schedule',
       name: 'Schedule',
       component: Schedule
-    }
-  ]
+    },
+    {
+      path: '/tree',
+      name: 'Tree',
+      component: Tree
+    }]
 })
