@@ -9,13 +9,14 @@ import VueResource from 'vue-resource'
 
 import VueSchedule from './modules/VueShedule'
 import VueJsonp from './modules/VueJsonp'
-
+import VueSocketIO from './modules/VueSocketIO'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(VueResource)
 Vue.use(VueSchedule)
 Vue.use(VueJsonp)
+Vue.use(VueSocketIO)
 
 /* eslint-disable no-new */
 new Vue({

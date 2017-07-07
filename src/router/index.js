@@ -10,6 +10,7 @@ import ECharts from '@/components/ECharts'
 import Zabbix from '@/components/Zabbix'
 import Schedule from '@/components/Schedule'
 import Tree from '@/components/Tree'
+import Socketio from '@/components/Socketio'
 
 Vue.use(Router)
 
@@ -64,5 +65,11 @@ export default new Router({
       path: '/tree',
       name: 'Tree',
       component: Tree
-    }]
+    },
+    {
+      path: '/socketio',
+      name: 'Socketio',
+      component: Socketio
+    }
+  ]
 })
