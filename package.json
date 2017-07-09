@@ -17,6 +17,8 @@
     "axios": "^0.16.2",
     "echarts": "^3.6.1",
     "element-ui": "^1.3.5",
+    "joi": "^10.6.0",
+    "joi-browser": "^10.6.0",
     "jsonp": "^0.2.1",
     "jsqr": "^0.2.2",
     "node-schedule": "^1.2.3",

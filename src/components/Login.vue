@@ -17,7 +17,7 @@
     </el-row>
     <el-row :gutter="10" align="middle" justify="center">
       <el-col :span="2" :offset="10">
-        <el-button type="primary" >确定</el-button>
+        <el-button type="primary" @click="emmitit">确定</el-button>
       </el-col>
       <el-col :span="2">
         <el-button type="primary">取消</el-button>
@@ -28,14 +28,24 @@
 
 <script>
   export default {
-    emmite: function () {
-      console.log('emmit')
-    },
     name: 'Login',
     data: function () {
       return {
-        username: 'abcd',
-        password: 'abcd'
+        username: '',
+        password: ''
+      }
+    },
+    methods: {
+      emmitit: function (event) {
+        const Joi = require('joi')
+        let schema = Joi.string().alphanum().min(3).max(8).required
+        Joi.validate({username: this.username}, schema, (err, result) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(result)
+          }
+        })
       }
     }
   }
