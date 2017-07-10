@@ -23,43 +23,51 @@
         <el-button type="primary">取消</el-button>
       </el-col>
     </el-row>
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      size="tiny"
+      :before-close="handleClose">
+      <span>{{msg}}</span>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button'
   export default {
-    components: {ElButton},
     name: 'Login',
     data: function () {
       return {
+        dialogVisible: false,
+        msg: '',
         username: 'abcd',
         password: '1234'
       }
     },
     methods: {
       emitit: function () {
-        console.log('emmit')
         var Joi = require('joi')
         var schema = Joi.object().keys({
           username: Joi.string().alphanum().max(10).min(3).required(),
-          password: Joi.string().regex(/^[a-z0-9A-Z]{3,30}$/)
+          password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/)
         })
-        Joi.validate({username: this.username, password: this.password}, schema, function (err, result) {
+        Joi.validate({username: this.username, password: this.password}, schema, (err, result) => {
           if (err) {
-            console.log('err:' + err)
+            this.msg = err
           } else {
-            console.log(result)
+            this.msg = result
           }
         })
+        this.dialogVisible = true
       }
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .col {
-    padding: 10px 0;
-  }
+<style scoped lang="scss">
 </style>
