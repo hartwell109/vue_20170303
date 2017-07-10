@@ -18,7 +18,7 @@
     },
     methods: {
       getData: function (event) {
-        const params = {pageNum: 0}
+        const params = {pageNum: 0, pageSize: 30}
         this.$jsonp('http://localhost:3000/dao/list', params, (err, data) => {
           if (err) {
             console.log(err)
