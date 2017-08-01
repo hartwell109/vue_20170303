@@ -11,6 +11,7 @@ import Zabbix from '@/components/Zabbix'
 import Schedule from '@/components/Schedule'
 import Tree from '@/components/Tree'
 import Socketio from '@/components/Socketio'
+import Axios from '@/components/Axios'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/socketio',
       name: 'Socketio',
       component: Socketio
+    },
+    {
+      path: '/axios',
+      name: 'Axios',
+      component: Axios
     }
   ]
 })

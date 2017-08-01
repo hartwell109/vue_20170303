@@ -3,22 +3,31 @@
 
 module.exports = {
   'Step 1': function (browser) {
+    var tesseract = require('node-tesseract')
     browser
       .url('http://202.99.45.97:9052/CIS-CHSSF/login')
       .waitForElementPresent('img[name="captcha"]', 1000)
-  },
-  'Step 2': function (client) {
-    console.log('step 2............')
-    var range = {}
-    client
-      .getElementSize('img[name="captcha"]', (result) => {
-        range.height = result.value.height
-        range.width = result.value.width
-      })
-      .getLocation('img[name="captcha"]', (result) => {
-        range.x = result.value.x
-        range.y = result.value.y
-        console.log(range)
+      .setValue('input[name="username"]', '34b1y6u')
+      .setValue('input[name="password"]', 'Meitainuo*1601', function (browser) {
+        var fs = require('fs')
+        var request = require('request')
+        var imgUrl = 'captcha.jpg'
+        var toPath = 'd:\\temp.jpg'
+        request(encodeURI(imgUrl))
+          .on('error', (err) => {
+            console.log(err)
+          })
+          .pipe(fs.createWriteStream(toPath)
+            .on('finish', () => {
+              console.log('The %s has be saved to %s', imgUrl, toPath)
+              tesseract.process(toPath, (err, result) => {
+                if (err) {
+                  console.log(err)
+                } else {
+                  console.log(result)
+                }
+              })
+            }))
       })
   }
 }
