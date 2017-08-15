@@ -50,12 +50,11 @@
     },
     methods: {
       emitit: function () {
-        var Joi = require('joi')
-        var schema = Joi.object().keys({
-          username: Joi.string().alphanum().max(10).min(3).required(),
-          password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/)
+        var schema = this.$joi.object().keys({
+          username: this.$joi.string().alphanum().max(10).min(3).required(),
+          password: this.$joi.string().regex(/^[a-zA-Z0-9]{3,30}$/)
         })
-        Joi.validate({username: this.username, password: this.password}, schema, (err, result) => {
+        this.$joi.validate({username: this.username, password: this.password}, schema, (err, result) => {
           if (err) {
             this.msg = err
           } else {

@@ -7,26 +7,19 @@
 
 <script>
   export default {
+    name: 'axios',
     data: function () {
       return {
         msg: []
       }
     },
     mounted: function () {
-      var axios = require('axios')
-      var config = {
-        baseURL: 'http://192.168.0.100:3000',
-        timeout: 5000,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'},
-        responseType: 'json',
-        data: {
-          pageNum: 0,
-          pageSize: 10
-        }
-      }
       var that = this
-      const Axios = axios.create(config)
-      Axios.get('/dao/list')
+      const params = this.$qs.stringify({
+        pageNum: 0,
+        pageSize: 10
+      })
+      this.$axios.get('/dao/list', params)
         .then(function (response) {
           that.msg = response.data
         })
