@@ -10,6 +10,9 @@ import VueResource from 'vue-resource'
 import VueSchedule from './modules/VueShedule'
 import VueJsonp from './modules/VueJsonp'
 import VueSocketIO from './modules/VueSocketIO'
+import VueAxios from './modules/VueAxios'
+import VueQs from './modules/VueQs'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
@@ -17,6 +20,8 @@ Vue.use(VueResource)
 Vue.use(VueSchedule)
 Vue.use(VueJsonp)
 Vue.use(VueSocketIO)
+Vue.use(VueAxios)
+Vue.use(VueQs)
 
 /* eslint-disable no-new */
 new Vue({

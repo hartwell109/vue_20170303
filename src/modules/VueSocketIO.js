@@ -3,6 +3,7 @@
  */
 exports.install = function (Vue, options) {
   var io = require('socket.io-client')
-  var socket = io('http://localhost:3333', {reconnect: true})
+  var socketConfig = require('./config').socket
+  var socket = io(socketConfig.url, {reconnect: true})
   Vue.prototype.$socketio = socket
 }

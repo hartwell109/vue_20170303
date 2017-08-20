@@ -21,27 +21,19 @@
       }
     },
     created: function () {
-      this.$jsonp('http://localhost:3000/dao/list', {pageNum: 0}, (err, data) => {
-        if (err) {
-          console.log(err)
-        } else {
-          this.userlist = data
-        }
-      })
+      let params = this.$qs.stringify({pageSize: 20, pageNum: 0})
+      this.$axios.get('/dao/list?' + params)
+        .then(response => {
+          this.userlist = response.data
+        })
     },
     methods: {
       changePage: function (event) {
-        console.log(event)
-        this.$http
-          .jsonp('http://localhost:3000/dao/list?pageNum=' + event, {emulateJSON: true})
-          .then(
-            res => {
-              this.userlist = res.data
-            },
-            res => {
-              console.log(res.status)
-            }
-          )
+        let params = this.$qs.stringify({pageSize: 20, pageNum: event - 1})
+        this.$axios.get('/dao/list?' + params)
+          .then(response => {
+            this.userlist = response.data
+          })
       }
     }
   }
