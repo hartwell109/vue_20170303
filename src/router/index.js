@@ -12,6 +12,7 @@ import Schedule from '@/components/Schedule'
 import Tree from '@/components/Tree'
 import Socketio from '@/components/Socketio'
 import Axios from '@/components/Axios'
+import Controlers from '@/components/Controlers'
 
 Vue.use(Router)
 
@@ -76,6 +77,11 @@ export default new Router({
       path: '/axios',
       name: 'Axios',
       component: Axios
+    },
+    {
+      path: '/controlers',
+      name: 'Controlers',
+      component: Controlers
     }
   ]
 })
